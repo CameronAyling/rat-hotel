@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Entities",
-    "path":"folders/Objects/Entities.yy",
+    "path":"folders/Objects/Game/Entities.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_block",
+    "path":"sprites/spr_block/spr_block.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -3,9 +3,15 @@ level_entity_layout = [];
 
 grid_size = 128;
 
+moveable_entities = [ENTITIES.CHEESE, ENTITIES.BLOCK];
+moveable_objects = [obj_cheese, obj_block];
+
+walkable_layouts = [LAYOUT.FLOOR];
+
+level_complete = false;
+time_source_started = false;
 
 // PARSE FLOOR LAYOUT
-enum LAYOUT {PIT, FLOOR, WALL, OBJECTIVE}
 for(var i = 0; i < floor(room_height / grid_size); i++)
 {
 	var row = [];
@@ -27,9 +33,6 @@ for(var i = 0; i < floor(room_height / grid_size); i++)
 			case 2:
 				type = LAYOUT.WALL;
 				break;
-			case 3:
-				type = LAYOUT.OBJECTIVE;
-				break;
 		}
 		
 		array_push(row, type);
@@ -40,7 +43,6 @@ for(var i = 0; i < floor(room_height / grid_size); i++)
 
 
 // PARSE OBJECTS ON THE LAYOUT
-enum ENTITIES {NONE, MOUSE, BLOCK, CHEESE, PLAYER}
 for(var i = 0; i < floor(room_height / grid_size); i++)
 {
 	var row = [];
@@ -87,7 +89,6 @@ for(var i = 0; i < floor(room_height / grid_size); i++)
 }
 
 // MOVEMENT
-enum MOVEMENT {LEFT, RIGHT, UP, DOWN}
 move_entity = function(_entity, _dir)
 {	
 	var grid_coords = room_to_grid(_entity.x, _entity.y);
@@ -96,11 +97,11 @@ move_entity = function(_entity, _dir)
 		case MOVEMENT.LEFT:
 			if(grid_coords[0] == 0) return false;
 		
-			if(level_floor_layout[grid_coords[1]][grid_coords[0] - 1] == LAYOUT.FLOOR)
+			if(array_contains(walkable_layouts, level_floor_layout[grid_coords[1]][grid_coords[0] - 1]))
 			{
-				if(level_entity_layout[grid_coords[1]][grid_coords[0] - 1] == ENTITIES.CHEESE)
+				if(array_contains(moveable_entities, level_entity_layout[grid_coords[1]][grid_coords[0] - 1]))
 				{
-					var cheese = collision_point(_entity.x - grid_size, _entity.y, obj_cheese, false, false);
+					var cheese = collision_point(_entity.x - grid_size, _entity.y, moveable_objects, false, false);
 					var result = obj_level_manager.move_entity(cheese, MOVEMENT.LEFT);
 					if(!result) return false;
 				}
@@ -115,11 +116,11 @@ move_entity = function(_entity, _dir)
 		case MOVEMENT.RIGHT:
 			if(grid_coords[0] == array_length(level_entity_layout[0]) - 1) return false;
 			
-			if(level_floor_layout[grid_coords[1]][grid_coords[0] + 1] == LAYOUT.FLOOR)
+			if(array_contains(walkable_layouts, level_floor_layout[grid_coords[1]][grid_coords[0] + 1]))
 			{
-				if(level_entity_layout[grid_coords[1]][grid_coords[0] + 1] == ENTITIES.CHEESE)
+				if(array_contains(moveable_entities, level_entity_layout[grid_coords[1]][grid_coords[0] + 1]))
 				{
-					var cheese = collision_point(_entity.x + grid_size, _entity.y, obj_cheese, false, false);
+					var cheese = collision_point(_entity.x + grid_size, _entity.y, moveable_objects, false, false);
 					var result = obj_level_manager.move_entity(cheese, MOVEMENT.RIGHT);
 					if(!result) return false;
 				}
@@ -134,11 +135,11 @@ move_entity = function(_entity, _dir)
 		case MOVEMENT.UP:
 			if(grid_coords[1] == 0) return false;
 		
-			if(level_floor_layout[grid_coords[1] - 1][grid_coords[0]] == LAYOUT.FLOOR)
+			if(array_contains(walkable_layouts, level_floor_layout[grid_coords[1] - 1][grid_coords[0]]))
 			{
-				if(level_entity_layout[grid_coords[1] - 1][grid_coords[0]] == ENTITIES.CHEESE)
+				if(array_contains(moveable_entities, level_entity_layout[grid_coords[1] - 1][grid_coords[0]]))
 				{
-					var cheese = collision_point(_entity.x, _entity.y - grid_size, obj_cheese, false, false);
+					var cheese = collision_point(_entity.x, _entity.y - grid_size, moveable_objects, false, false);
 					var result = obj_level_manager.move_entity(cheese, MOVEMENT.UP);
 					if(!result) return false;
 				}
@@ -153,11 +154,11 @@ move_entity = function(_entity, _dir)
 		case MOVEMENT.DOWN:
 			if(grid_coords[1] == array_length(level_entity_layout) - 1) return false;
 		
-			if(level_floor_layout[grid_coords[1] + 1][grid_coords[0]] == LAYOUT.FLOOR)
+			if(array_contains(walkable_layouts, level_floor_layout[grid_coords[1] + 1][grid_coords[0]]))
 			{
-				if(level_entity_layout[grid_coords[1] + 1][grid_coords[0]] == ENTITIES.CHEESE)
+				if(array_contains(moveable_entities, level_entity_layout[grid_coords[1] + 1][grid_coords[0]]))
 				{
-					var cheese = collision_point(_entity.x, _entity.y + grid_size, obj_cheese, false, false);
+					var cheese = collision_point(_entity.x, _entity.y + grid_size, moveable_objects, false, false);
 					var result = obj_level_manager.move_entity(cheese, MOVEMENT.DOWN);
 					if(!result) return false;
 				}

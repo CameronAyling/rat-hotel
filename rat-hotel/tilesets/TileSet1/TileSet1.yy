@@ -8,12 +8,12 @@
     "TileSerialiseData":[],
   },
   "name":"TileSet1",
-  "out_columns":1,
+  "out_columns":2,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"rat-hotel",
-    "path":"rat-hotel.yyp",
+    "name":"Tilesets",
+    "path":"folders/Tilesets.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
@@ -34,5 +34,5 @@
   "tileWidth":128,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":2,
+  "tile_count":4,
 }
