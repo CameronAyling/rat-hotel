@@ -1,3 +1,6 @@
+global.paused = false;
+global.locked = false;
+
 level_index = 0;
 
 level_order = [

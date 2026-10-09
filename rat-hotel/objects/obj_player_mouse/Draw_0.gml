@@ -1,3 +1,5 @@
+image_speed = !global.paused;
+
 draw_self();
 
 for(var i = 1; i < array_length(mice); i++)

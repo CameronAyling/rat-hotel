@@ -1,3 +1,5 @@
+global.locked = false;
+
 level_floor_layout = [];
 level_entity_layout = [];
 
@@ -6,10 +8,12 @@ global.grid_size = 128;
 moveable_entities = [ENTITIES.CHEESE, ENTITIES.BLOCK];
 moveable_objects = [obj_cheese, obj_block];
 
-walkable_layouts = [LAYOUT.FLOOR];
+walkable_layouts = [LAYOUT.FLOOR, LAYOUT.FRAGILE];
 
 level_complete = false;
-time_source_started = false;
+
+ts_next_level = time_source_create(time_source_game, 2, time_source_units_seconds, function(e, i) {obj_game_manager.next_level()})
+ts_restart_level = time_source_create(time_source_game, 2, time_source_units_seconds, function(e, i) {room_restart()});
 
 // PARSE FLOOR LAYOUT
 for(var i = 0; i < floor(room_height / global.grid_size); i++)
@@ -33,6 +37,8 @@ for(var i = 0; i < floor(room_height / global.grid_size); i++)
 			case 2:
 				type = LAYOUT.WALL;
 				break;
+			case 3:
+				type = LAYOUT.FRAGILE;
 		}
 		
 		array_push(row, type);
@@ -91,6 +97,8 @@ for(var i = 0; i < floor(room_height / global.grid_size); i++)
 // MOVEMENT
 move_entity = function(_entity, _dir)
 {	
+	if(global.paused) return true;
+	
 	var grid_coords = room_to_grid(_entity.x, _entity.y);
 	switch(_dir)
 	{

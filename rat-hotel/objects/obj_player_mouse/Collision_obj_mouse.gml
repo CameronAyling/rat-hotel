@@ -8,7 +8,7 @@ for(var i = 0; i < 5; i++)
 	
 	for(var j = 0; j < array_length(mice); j++)
 	{
-		if(point_distance(coords[0], coords[1], mice[i][0], mice[i][1]) < 10)
+		if(point_distance(coords[0], coords[1], mice[i][0], mice[i][1]) < 30)
 		{
 			complete = false;
 		}

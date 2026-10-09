@@ -8,9 +8,7 @@ with(obj_objective_marker)
 	}
 }
 
-if(level_complete && !time_source_started)
+if(level_complete)
 {
-	time_source_started = true;
-	var ts = time_source_create(time_source_game, 2, time_source_units_seconds, function(e, i) {obj_game_manager.next_level()})
-	time_source_start(ts);
+	time_source_start(ts_next_level);
 }

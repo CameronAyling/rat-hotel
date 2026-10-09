@@ -8,6 +8,6 @@ function room_to_grid(_x, _y)
 	return [floor(_x / 128), floor(_y / 128)];
 }
 
-enum LAYOUT {PIT, FLOOR, WALL, OBJECTIVE}
+enum LAYOUT {PIT, FLOOR, WALL, FRAGILE}
 enum ENTITIES {NONE, MOUSE, BLOCK, CHEESE, PLAYER}
 enum MOVEMENT {LEFT, RIGHT, UP, DOWN}
