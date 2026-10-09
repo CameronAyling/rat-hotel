@@ -16,6 +16,7 @@ for(var i = 0; i < array_length(level_floor_layout); i++)
 					{
 						break_through = true;
 						time_source_start(ts_restart_level);
+						global.locked = true;
 					}
 				}
 				else

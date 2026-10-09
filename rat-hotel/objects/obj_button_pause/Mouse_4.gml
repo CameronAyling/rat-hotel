@@ -1,0 +1,4 @@
+with(obj_game_manager)
+{
+	pause_resume();
+}

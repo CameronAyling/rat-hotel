@@ -197,3 +197,6 @@ move_entity = function(_entity, _dir)
 	
 	return true;
 }
+
+instance_create_layer(room_width - 80, 80, "GUI", obj_button_pause);
+instance_create_layer(room_width - 306, 80, "GUI", obj_button_restart);
