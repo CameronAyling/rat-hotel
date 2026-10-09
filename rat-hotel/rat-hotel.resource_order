@@ -1,10 +1,10 @@
 {
   "FolderOrderSettings":[
-    {"name":"Scripts","order":4,"path":"folders/Scripts.yy",},
     {"name":"Objects","order":3,"path":"folders/Objects.yy",},
     {"name":"Entities","order":8,"path":"folders/Objects/Entities.yy",},
     {"name":"Floor","order":7,"path":"folders/Objects/Floor.yy",},
     {"name":"Rooms","order":2,"path":"folders/Rooms.yy",},
+    {"name":"Scripts","order":4,"path":"folders/Scripts.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
   ],
   "ResourceOrderSettings":[
@@ -15,8 +15,17 @@
     {"name":"obj_player_mouse","order":3,"path":"objects/obj_player_mouse/obj_player_mouse.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"rm_level_1","order":1,"path":"rooms/rm_level_1/rm_level_1.yy",},
+    {"name":"rm_Lucy_Test","order":2,"path":"rooms/rm_Lucy_Test/rm_Lucy_Test.yy",},
+    {"name":"spr_bg","order":4,"path":"sprites/spr_bg/spr_bg.yy",},
+    {"name":"spr_carpet_ph","order":3,"path":"sprites/spr_carpet_ph/spr_carpet_ph.yy",},
+    {"name":"spr_carpet_tile","order":5,"path":"sprites/spr_carpet_tile/spr_carpet_tile.yy",},
     {"name":"spr_cheese","order":2,"path":"sprites/spr_cheese/spr_cheese.yy",},
+    {"name":"spr_play_button","order":6,"path":"sprites/spr_play_button/spr_play_button.yy",},
     {"name":"spr_player_mouse","order":1,"path":"sprites/spr_player_mouse/spr_player_mouse.yy",},
+    {"name":"spr_quit_button","order":7,"path":"sprites/spr_quit_button/spr_quit_button.yy",},
+    {"name":"spr_title_screen_mock_up","order":9,"path":"sprites/spr_title_screen_mock_up/spr_title_screen_mock_up.yy",},
+    {"name":"spr_title","order":8,"path":"sprites/spr_title/spr_title.yy",},
+    {"name":"TileSet_Carpet","order":7,"path":"tilesets/TileSet_Carpet/TileSet_Carpet.yy",},
     {"name":"TileSet1","order":5,"path":"tilesets/TileSet1/TileSet1.yy",},
   ],
 }
