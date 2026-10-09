@@ -1,1 +1,1 @@
-mice = [];
+mice = [[global.grid_size / 2, global.grid_size / 2]];

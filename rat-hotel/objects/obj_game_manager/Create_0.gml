@@ -7,7 +7,8 @@ level_order = [
 
 next_level = function()
 {
-	show_debug_message("here");
 	level_index++;
 	room_goto(level_order[level_index]);
 }
+
+randomise();

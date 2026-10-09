@@ -5,7 +5,7 @@ draw_set_valign(fa_middle);
 
 draw_set_colour(c_black);
 
-draw_set_font(fnt_ingame);
+draw_set_font(fnt_objective);
 
 draw_text(x, y, needed_weight);
 

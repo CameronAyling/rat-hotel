@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_new_mouse",
+    "path":"sprites/spr_new_mouse/spr_new_mouse.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
