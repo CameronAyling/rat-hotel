@@ -1,0 +1,1 @@
+obj_level_manager.move_entity(self, MOVEMENT.DOWN);
